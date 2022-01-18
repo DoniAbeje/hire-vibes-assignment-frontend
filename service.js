@@ -3,6 +3,10 @@ import * as request from "./request";
 
 const BASE_URL = "http://localhost:3000";
 
+export async function register(user) {
+  return await request.post(`${BASE_URL}/user/register`, user);
+}
+
 export async function login(user) {
   const response = await request.post(`${BASE_URL}/user/authenticate`, user, [
     401,
