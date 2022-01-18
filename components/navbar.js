@@ -1,12 +1,12 @@
 export default function Navbar() {
   return (
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-      <div class="container">
-        <a class="navbar-brand" href="#">
+    <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+      <div className="container">
+        <a className="navbar-brand" href="#">
           Films
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
@@ -14,22 +14,22 @@ export default function Navbar() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+        <div className="collapse navbar-collapse" id="navbarCollapse">
+          <ul className="navbar-nav me-auto mb-2 mb-md-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">
                 Add New
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">
                 Register
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">
                 Login
               </a>
             </li>

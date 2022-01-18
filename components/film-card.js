@@ -5,28 +5,28 @@ export function FilmCard({ film }) {
   }
 
   return (
-    <div class="col">
-      <div class="card shadow-sm">
+    <div className="col">
+      <div className="card shadow-sm">
         <div>
           <img
             src={film.photo}
-            class="card-img-top"
+            className="card-img-top"
             style={{ height: "16em", width: "100%", objectFit: "cover" }}
           />
         </div>
-        <h5 class="card-header">{film.name}</h5>
-        <div class="card-body">
-          <p class="card-text">{film.description}</p>
+        <h5 className="card-header">{film.name}</h5>
+        <div className="card-body">
+          <p className="card-text">{film.description}</p>
           <div>
-            <small class="text-muted">
+            <small className="text-muted">
               Released: {formatReleaseYear(film.releaseDate)}
             </small>
           </div>
           <div>
-            <small class="text-muted">Country: {film.country}</small>
+            <small className="text-muted">Country: {film.country}</small>
           </div>
           <Rating rating={film.rating}></Rating>
-          <h5 class="text-primary mt-3">USD {film.ticketPrice}</h5>
+          <h5 className="text-primary mt-3">USD {film.ticketPrice}</h5>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@ function Rating({ rating }) {
         .map((e) => (
           <img
             src="/star-f.png"
-            class="m-2"
+            className="m-2"
             style={{ height: 18, width: 18 }}
           />
         ))}
@@ -50,7 +50,7 @@ function Rating({ rating }) {
         .map((e) => (
           <img
             src="/star-o.png"
-            class="m-2"
+            className="m-2"
             style={{ height: 18, width: 18 }}
           />
         ))}
