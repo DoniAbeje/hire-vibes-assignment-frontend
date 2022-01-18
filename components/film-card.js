@@ -1,4 +1,4 @@
-export function FilmCard({ film }) {
+export function FilmCard({ film, imageHeight='16em' }) {
   function formatReleaseYear(dateString) {
     const date = new Date(dateString);
     return date.getFullYear();
@@ -11,7 +11,7 @@ export function FilmCard({ film }) {
           <img
             src={film.photo}
             className="card-img-top"
-            style={{ height: "16em", width: "100%", objectFit: "cover" }}
+            style={{ height: imageHeight, width: "100%", objectFit: "cover" }}
           />
         </div>
         <h5 className="card-header">{film.name}</h5>
