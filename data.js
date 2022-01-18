@@ -13,3 +13,11 @@ export const sampleFilm = {
 };
 
 export const sampleFilms = [1, 2, 3, 4].map((e) => sampleFilm);
+
+export const sampleComment = {
+  name: "John",
+  comment: "Nice movie!! I like it",
+  filmId: "",
+};
+
+export const sampleComments = [1, 2, 3].map((e) => sampleComment);
