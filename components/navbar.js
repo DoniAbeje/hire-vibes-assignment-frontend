@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
       <div className="container">
-        <a className="navbar-brand" href="#">
-          Films
-        </a>
+        <span className="navbar-brand">
+          <Link href="/films">Films</Link>
+        </span>
         <button
           className="navbar-toggler"
           type="button"
@@ -19,19 +21,19 @@ export default function Navbar() {
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Add New
-              </a>
+              <span className="nav-link ">
+                <Link href="/films/create">Add New</Link>
+              </span>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Register
-              </a>
+              <span className="nav-link ">
+                <Link href="/register">Register</Link>
+              </span>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Login
-              </a>
+              <span className="nav-link ">
+                <Link href="/login">Login</Link>
+              </span>
             </li>
           </ul>
         </div>
