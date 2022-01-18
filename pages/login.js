@@ -6,7 +6,9 @@ export default function Login() {
     >
       <form className="bg-light p-5 shadow-sm">
         <div class="mb-3" style={{ width: "30rem" }}>
-          <h1 className="mb-5 text-center"><span className="text-primary">FILMS</span> | LOGIN</h1>
+          <h1 className="mb-5 text-center">
+            <span className="text-primary">FILMS</span> | LOGIN
+          </h1>
           <label for="username-input" class="form-label">
             Username
           </label>
@@ -21,16 +23,14 @@ export default function Login() {
           <label for="password-input" class="form-label">
             Password
           </label>
-          <input
-            type="password"
-            class="form-control"
-            id="password-input"
-            placeholder="John Doe"
-          />
+          <input type="password" class="form-control" id="password-input" />
         </div>
         <div class="d-grid gap-2">
           <button type="submit" class="btn btn-primary mt-3 mb-3">
-            Submit
+            LOGIN
+          </button>
+          <button type="button" class="btn btn-dark btn mt-1">
+            Don't have account? Create new
           </button>
         </div>
       </form>
