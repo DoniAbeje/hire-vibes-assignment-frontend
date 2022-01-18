@@ -26,3 +26,8 @@ export async function login(user) {
 export function isAuthenticated(){
     return localStorage.getItem('token');
 }
+
+export function logout(){
+  localStorage.removeItem('token')
+  window.location = '/films'
+}

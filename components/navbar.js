@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { isAuthenticated } from "../service";
+import * as service from "../service";
 
 export default function Navbar() {
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
-     setAuthenticated(isAuthenticated());
-  })
+    setAuthenticated(service.isAuthenticated());
+  });
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
       <div className="container">
@@ -49,6 +49,21 @@ export default function Navbar() {
               </li>
             )}
           </ul>
+          <div class="d-flex">
+            <ul className="navbar-nav me-auto mb-2 mb-md-0">
+              {authenticated && (
+                <li className="nav-item">
+                  <span
+                    role="button"
+                    className="nav-link active"
+                    onClick={service.logout}
+                  >
+                    Logout
+                  </span>
+                </li>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
