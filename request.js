@@ -15,6 +15,7 @@ export async function post(url, data, exclude = []) {
     });
   } catch (e) {
     NotificationManager.warning("Network Error!");
+    return null
   }
 
   if (response && (response.ok || exclude.includes(response.status))) {
