@@ -1,7 +1,19 @@
 import { NotificationManager } from "react-notifications";
 import * as request from "./request";
+import { initializeApp } from "firebase/app";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { firebaseConfig } from "./firebase.config";
 
 const BASE_URL = "http://localhost:3000";
+
+export async function uploadFile(file, name) {
+  const app = initializeApp(firebaseConfig);
+  const storage = getStorage(app);
+
+  const fileRef = ref(storage, name);
+  const snapshot = await uploadBytes(fileRef, file);
+  return getDownloadURL(fileRef);
+}
 
 export async function createFilm(film) {
   return await request.post(`${BASE_URL}/film`, film);

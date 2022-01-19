@@ -19,7 +19,7 @@ export default function CreateFilm() {
         <h1 className="mb-5 text-center">
           <span className="text-primary">FILMS</span> | Create
         </h1>
-        <form onSubmit={create}>
+        <form onSubmit={onCreate}>
           <div className="row justify-content-center bg-light pt-4 pb-4">
             <div className="col-lg-3">
               <label htmlFor="title-input" className="form-label">
@@ -124,8 +124,7 @@ export default function CreateFilm() {
                 type="file"
                 id="photo-input"
                 accept="image/*"
-                value={photo}
-                onChange={(e) => setPhoto(e.target.value)}
+                onChange={(e) => setPhoto(e.target.files[0])}
               ></input>
               <label htmlFor="description-input" className="form-label mt-3">
                 Description
@@ -151,8 +150,16 @@ export default function CreateFilm() {
     </Layout>
   );
 
-  async function create(event) {
+  async function onCreate(event) {
     event.preventDefault();
+    const photoUrl = await uploadPhoto();
+    if (!photoUrl) {
+      return;
+    }
+    createFilm(photoUrl);
+  }
+
+  async function createFilm(photoUrl) {
     const film = {
       name,
       rating,
@@ -161,13 +168,30 @@ export default function CreateFilm() {
       country,
       genre,
       description,
-      photo:
-        "https://m.media-amazon.com/images/M/MV5BODc5YTBhMTItMjhkNi00ZTIxLWI0YjAtNTZmOTY0YjRlZGQ0XkEyXkFqcGdeQXVyODUwNjEzMzg@._V1_UX67_CR0,0,67,98_AL_.jpg",
+      photo: photoUrl,
     };
+
     const response = await service.createFilm(film);
-    if(response.ok){
-      window.location = '/films'
-      NotificationManager.success('Film Created!')
+    if (response && response.ok) {
+      window.location = "/films";
+      NotificationManager.success("Film Created!");
     }
+  }
+
+  async function uploadPhoto() {
+    let url;
+    try {
+      url = await service.uploadFile(photo, getFileName());
+    } catch (error) {
+      NotificationManager.error("Unable to upload photo");
+      return null;
+    }
+    return url;
+  }
+
+  function getFileName() {
+    const extention = photo.name.split(".").pop();
+    const uniqueName = Date.now().toString();
+    return `${uniqueName}.${extention}`;
   }
 }
