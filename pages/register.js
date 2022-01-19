@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import { NotificationManager } from "react-notifications";
 import * as service from "../service";
@@ -57,9 +58,11 @@ export default function Register() {
           <button type="submit" className="btn btn-primary mt-3 mb-3">
             REGISTER
           </button>
-          <button type="button" className="btn btn-dark">
-            Aready have an account? Login
-          </button>
+          <Link href="/login">
+            <button type="button" className="btn btn-dark">
+              Aready have an account? Login
+            </button>
+          </Link>
         </div>
       </form>
     </div>
