@@ -1,3 +1,5 @@
+import { NotificationManager } from "react-notifications";
+
 export async function post(url, data, exclude = []) {
   let response;
   try {
@@ -10,6 +12,28 @@ export async function post(url, data, exclude = []) {
     });
   } catch (e) {
     NotificationManager.warning("Network Error!");
+  }
+
+  if (response && (response.ok || exclude.includes(response.status))) {
+    return response;
+  }
+
+  handleError(response);
+  return null;
+}
+
+export async function get(url, exclude = []) {
+  let response;
+  try {
+    response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (e) {
+    NotificationManager.warning("Network Error!");
+    return null;
   }
 
   if (response && (response.ok || exclude.includes(response.status))) {
