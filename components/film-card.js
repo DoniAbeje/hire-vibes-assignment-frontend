@@ -49,6 +49,7 @@ export function FilmCard({ film, imageHeight = "16em", href = "" }) {
           </div>
           <Rating rating={film.rating}></Rating>
           <h5 className="text-primary mt-3">USD {film.ticketPrice}</h5>
+          <Genre genres={film.genre}></Genre>
         </div>
       </div>
     </div>
@@ -74,4 +75,18 @@ function Rating({ rating }) {
       />;
     }
   }
+}
+
+function Genre({ genres }) {
+  return (
+    <div className="">
+      {genres.map((genre, index) => {
+        return (
+          <span key={index} className="badge bg-dark" style={{marginLeft: '.5em'}}>
+            {genre}
+          </span>
+        );
+      })}
+    </div>
+  );
 }
