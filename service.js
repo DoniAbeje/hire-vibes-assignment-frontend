@@ -2,6 +2,11 @@ import { NotificationManager } from "react-notifications";
 import * as request from "./request";
 
 const BASE_URL = "http://localhost:3000";
+
+export async function fetchFilmBySlug(slug) {
+  return await request.get(`${BASE_URL}/film/${slug}`, [404]);
+}
+
 export async function fetchFilms() {
   return await request.get(`${BASE_URL}/film`);
 }
