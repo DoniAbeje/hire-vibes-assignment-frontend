@@ -42,7 +42,7 @@ export default function CommentBox({ filmId, onNewComment }) {
     event.preventDefault();
     const requestBody = { filmId, comment, name };
     const response = await service.submitComment(requestBody);
-    if(response.ok){
+    if(response && response.ok){
       if(onNewComment){
         const json = await response.json()
         onNewComment(json)

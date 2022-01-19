@@ -52,7 +52,7 @@ export default function FilmDetail() {
 
   async function fetchFilmBySlug(slug) {
     const response = await service.fetchFilmBySlug(slug);
-    if (response.ok) {
+    if (response && response.ok) {
       const json = await response.json();
       setFilm(json);
       setNotFound(false);
@@ -64,7 +64,7 @@ export default function FilmDetail() {
 
   async function fetchComments(filmId) {
     const response = await service.fetchComments(filmId);
-    if (response.ok) {
+    if (response && response.ok) {
       const json = await response.json();
       setComments(json);
     }
