@@ -3,6 +3,10 @@ import * as request from "./request";
 
 const BASE_URL = "http://localhost:3000";
 
+export async function submitComment(comment) {
+  return await request.post(`${BASE_URL}/comment`, comment);
+}
+
 export async function fetchComments(filmId) {
   return await request.get(`${BASE_URL}/comment/film/${filmId}`);
 }
@@ -36,6 +40,10 @@ export async function login(user) {
 }
 
 export function isAuthenticated() {
+  return getToken() != null;
+}
+
+export function getToken() {
   return localStorage.getItem("token");
 }
 

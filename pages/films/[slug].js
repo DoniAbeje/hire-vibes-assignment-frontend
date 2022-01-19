@@ -29,7 +29,10 @@ export default function FilmDetail() {
             {comments && (
               <div className="col-lg-4">
                 <h2>Comments ({comments.length})</h2>
-                <CommentBox></CommentBox>
+                <CommentBox
+                  filmId={film.id}
+                  onNewComment={() => fetchComments(film.id)}
+                ></CommentBox>
                 {comments.map((comment) => {
                   return <Comment comment={comment}></Comment>;
                 })}

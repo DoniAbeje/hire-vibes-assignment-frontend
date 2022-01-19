@@ -1,12 +1,15 @@
 import { NotificationManager } from "react-notifications";
+import * as service from "./service";
 
 export async function post(url, data, exclude = []) {
   let response;
+  const authHeader = getAuthHeader();
   try {
     response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        ...authHeader,
       },
       body: JSON.stringify(data),
     });
@@ -65,4 +68,14 @@ async function handle400(json) {
     }
     NotificationManager.warning(message);
   }
+}
+
+function getAuthHeader() {
+  if (service.isAuthenticated()) {
+    const token = service.getToken();
+    return {
+      Authorization: `Bearer ${token}`,
+    };
+  }
+  return {};
 }
