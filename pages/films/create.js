@@ -1,14 +1,25 @@
+import { useState } from "react";
+import { NotificationManager } from "react-notifications";
 import Layout from "../../layouts/layout";
-import Register from "../register";
+import * as service from "../../service";
 
 export default function CreateFilm() {
+  const [name, setName] = useState("");
+  const [rating, setRating] = useState("");
+  const [releaseDate, setReleaseDate] = useState("");
+  const [country, setCountry] = useState("USA");
+  const [photo, setPhoto] = useState("");
+  const [genre, setGenre] = useState([]);
+  const [description, setDescription] = useState("");
+  const [ticketPrice, setTicketPrice] = useState("");
+
   return (
     <Layout>
       <div className="container-fluid">
         <h1 className="mb-5 text-center">
           <span className="text-primary">FILMS</span> | Create
         </h1>
-        <form>
+        <form onSubmit={create}>
           <div className="row justify-content-center bg-light pt-4 pb-4">
             <div className="col-lg-3">
               <label htmlFor="title-input" className="form-label">
@@ -19,6 +30,8 @@ export default function CreateFilm() {
                 type="text"
                 className="form-control"
                 id="title-input"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
               <label htmlFor="release-date-input" className="form-label mt-3">
                 Release Date
@@ -28,6 +41,8 @@ export default function CreateFilm() {
                 type="date"
                 className="form-control"
                 id="release-date-input"
+                value={releaseDate}
+                onChange={(e) => setReleaseDate(e.target.value)}
               />
               <label htmlFor="country-input" className="form-label mt-3">
                 Country
@@ -36,9 +51,9 @@ export default function CreateFilm() {
                 required
                 className="form-select"
                 id="country-input"
-                defaultValue="1"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
               >
-                <option>Select Country</option>
                 <option value="USA">USA</option>
                 <option value="England">England</option>
                 <option value="Brasil">Brasil</option>
@@ -56,9 +71,15 @@ export default function CreateFilm() {
                 className="form-select"
                 id="genre-input"
                 multiple
-                defaultValue={["1"]}
+                onChange={(e) =>
+                  setGenre(
+                    Array.from(
+                      e.target.selectedOptions,
+                      (option) => option.value
+                    )
+                  )
+                }
               >
-                <option>Select Genre</option>
                 <option value="Comedy">Comedy</option>
                 <option value="Action">Action</option>
                 <option value="Horror">Horror</option>
@@ -77,10 +98,11 @@ export default function CreateFilm() {
                 required
                 type="number"
                 max="5"
-                min="0"
+                min="1"
                 className="form-control"
                 id="rating-input"
-                placeholder=""
+                value={rating}
+                onChange={(e) => setRating(parseInt(e.target.value))}
               />
               <label htmlFor="price-input" className="form-label mt-3">
                 Price
@@ -90,7 +112,8 @@ export default function CreateFilm() {
                 type="number"
                 className="form-control"
                 id="price-input"
-                placeholder=""
+                value={ticketPrice}
+                onChange={(e) => setTicketPrice(parseFloat(e.target.value))}
               />
               <label htmlFor="photo-input" className="form-label mt-3">
                 Photo
@@ -101,6 +124,8 @@ export default function CreateFilm() {
                 type="file"
                 id="photo-input"
                 accept="image/*"
+                value={photo}
+                onChange={(e) => setPhoto(e.target.value)}
               ></input>
               <label htmlFor="description-input" className="form-label mt-3">
                 Description
@@ -110,6 +135,7 @@ export default function CreateFilm() {
                 className="form-control"
                 id="description-input"
                 rows="4"
+                onChange={(e) => setDescription(e.target.value)}
               ></textarea>
             </div>
           </div>
@@ -124,4 +150,24 @@ export default function CreateFilm() {
       </div>
     </Layout>
   );
+
+  async function create(event) {
+    event.preventDefault();
+    const film = {
+      name,
+      rating,
+      releaseDate,
+      ticketPrice,
+      country,
+      genre,
+      description,
+      photo:
+        "https://m.media-amazon.com/images/M/MV5BODc5YTBhMTItMjhkNi00ZTIxLWI0YjAtNTZmOTY0YjRlZGQ0XkEyXkFqcGdeQXVyODUwNjEzMzg@._V1_UX67_CR0,0,67,98_AL_.jpg",
+    };
+    const response = await service.createFilm(film);
+    if(response.ok){
+      window.location = '/films'
+      NotificationManager.success('Film Created!')
+    }
+  }
 }

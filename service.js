@@ -3,6 +3,10 @@ import * as request from "./request";
 
 const BASE_URL = "http://localhost:3000";
 
+export async function createFilm(film) {
+  return await request.post(`${BASE_URL}/film`, film);
+}
+
 export async function submitComment(comment) {
   return await request.post(`${BASE_URL}/comment`, comment);
 }

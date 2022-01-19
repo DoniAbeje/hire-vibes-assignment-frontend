@@ -52,8 +52,10 @@ async function handleError(response) {
   switch (response.status) {
     case 400:
       await handle400(json);
+      break;
     case 401:
       window.location = "/login";
+      break;
   }
 }
 
