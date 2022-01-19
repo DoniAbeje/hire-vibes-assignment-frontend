@@ -1,4 +1,6 @@
-export function FilmCard({ film, imageHeight='16em' }) {
+import Link from "next/link";
+
+export function FilmCard({ film, imageHeight = "16em", href = "" }) {
   function formatReleaseYear(dateString) {
     const date = new Date(dateString);
     return date.getFullYear();
@@ -8,11 +10,31 @@ export function FilmCard({ film, imageHeight='16em' }) {
     <div className="col">
       <div className="card shadow-sm">
         <div>
-          <img
-            src={film.photo}
-            className="card-img-top"
-            style={{ height: imageHeight, width: "100%", objectFit: "cover" }}
-          />
+          {href != "" && (
+            <Link href={href}>
+              <img
+                src={film.photo}
+                role="button"
+                className="card-img-top"
+                style={{
+                  height: imageHeight,
+                  width: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </Link>
+          )}
+          {href == "" && (
+            <img
+              src={film.photo}
+              className="card-img-top"
+              style={{
+                height: imageHeight,
+                width: "100%",
+                objectFit: "cover",
+              }}
+            />
+          )}
         </div>
         <h5 className="card-header">{film.name}</h5>
         <div className="card-body">
@@ -46,14 +68,13 @@ function Rating({ rating }) {
             style={{ height: 18, width: 18 }}
           />
         ))}
-      {Array(notFilledStars)
-        .map((e) => (
-          <img
-            src="/star-o.png"
-            className="m-2"
-            style={{ height: 18, width: 18 }}
-          />
-        ))}
+      {Array(notFilledStars).map((e) => (
+        <img
+          src="/star-o.png"
+          className="m-2"
+          style={{ height: 18, width: 18 }}
+        />
+      ))}
     </div>
   );
 }

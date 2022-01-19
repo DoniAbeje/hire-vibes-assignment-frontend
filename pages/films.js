@@ -16,7 +16,7 @@ export default function Home() {
         <div className="container-fluid">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             {films.length != 0 &&
-              films.map((film) => <FilmCard film={film}></FilmCard>)}
+              films.map((film) => <FilmCard film={film} href={`/films/${film.slug}`}></FilmCard>)}
             {films.length == 0 && (
               <h2 className="text-center">There Are No Films</h2>
             )}
