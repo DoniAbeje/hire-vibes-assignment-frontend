@@ -59,22 +59,19 @@ function Rating({ rating }) {
   const notFilledStars = 5 - rating;
   return (
     <div>
-      {Array(rating)
-        .fill(0)
-        .map((e) => (
-          <img
-            src="/star-f.png"
-            className="m-2"
-            style={{ height: 18, width: 18 }}
-          />
-        ))}
-      {Array(notFilledStars).map((e) => (
-        <img
-          src="/star-o.png"
-          className="m-2"
-          style={{ height: 18, width: 18 }}
-        />
-      ))}
+      {geStars(rating, "/star-f.png")}
+      {geStars(notFilledStars, "/star-o.png")}
     </div>
   );
+
+  function geStars(count, src) {
+    for (let index = 0; index < count; index++) {
+      <img
+        key={index}
+        src={src}
+        className="m-2"
+        style={{ height: 18, width: 18 }}
+      />;
+    }
+  }
 }
