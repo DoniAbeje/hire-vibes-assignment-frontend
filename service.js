@@ -3,6 +3,10 @@ import * as request from "./request";
 
 const BASE_URL = "http://localhost:3000";
 
+export async function fetchComments(filmId) {
+  return await request.get(`${BASE_URL}/comment/film/${filmId}`);
+}
+
 export async function fetchFilmBySlug(slug) {
   return await request.get(`${BASE_URL}/film/${slug}`, [404]);
 }

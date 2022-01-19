@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Comment from "../../components/comment";
 import CommentBox from "../../components/comment-box";
 import { FilmCard } from "../../components/film-card";
-import { sampleComments, sampleFilm } from "../../data";
 import Layout from "../../layouts/layout";
 import * as service from "../../service";
 
@@ -12,6 +11,7 @@ export default function FilmDetail() {
   const { slug } = router.query;
   const [film, setFilm] = useState(null);
   const [notFound, setNotFound] = useState(false);
+  const [comments, setComments] = useState(null);
 
   useEffect(() => {
     fetchFilmBySlug(slug);
@@ -26,13 +26,15 @@ export default function FilmDetail() {
               <FilmCard film={film} imageHeight="24em"></FilmCard>
             </div>
             <div className="col-lg-2"></div>
-            <div className="col-lg-4">
-              <h2>Comments (2)</h2>
-              <CommentBox></CommentBox>
-              {sampleComments.map((comment) => {
-                return <Comment comment={comment}></Comment>;
-              })}
-            </div>
+            {comments && (
+              <div className="col-lg-4">
+                <h2>Comments ({comments.length})</h2>
+                <CommentBox></CommentBox>
+                {comments.map((comment) => {
+                  return <Comment comment={comment}></Comment>;
+                })}
+              </div>
+            )}
           </div>
         )}
         {notFound && (
@@ -51,8 +53,17 @@ export default function FilmDetail() {
       const json = await response.json();
       setFilm(json);
       setNotFound(false);
+      fetchComments(json.id);
     } else if (response.status == 404) {
       setNotFound(true);
+    }
+  }
+
+  async function fetchComments(filmId) {
+    const response = await service.fetchComments(filmId);
+    if (response.ok) {
+      const json = await response.json();
+      setComments(json);
     }
   }
 }
