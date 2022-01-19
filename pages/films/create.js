@@ -27,7 +27,7 @@ export default function CreateFilm() {
                 Country
               </label>
               <select
-                class="form-select"
+                className="form-select"
                 id="country-input"
                 aria-label="Default select"
               >
@@ -41,7 +41,7 @@ export default function CreateFilm() {
                 Genre
               </label>
               <select
-                class="form-select"
+                className="form-select"
                 id="genre-input"
                 multiple="multiple"
                 aria-label="Default select"
@@ -74,15 +74,15 @@ export default function CreateFilm() {
                 id="price-input"
                 placeholder=""
               />
-              <label for="photo-input" class="form-label mt-3">
+              <label for="photo-input" className="form-label mt-3">
                 Photo
               </label>
-              <input class="form-control" type="file" id="photo-input"></input>
-              <label for="description-input" class="form-label mt-3">
+              <input className="form-control" type="file" id="photo-input"></input>
+              <label for="description-input" className="form-label mt-3">
                 Description
               </label>
               <textarea
-                class="form-control"
+                className="form-control"
                 id="description-input"
                 rows="4"
               ></textarea>

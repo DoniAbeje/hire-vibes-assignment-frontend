@@ -7,30 +7,30 @@ export default function CommentBox({ filmId, onNewComment }) {
 
   return (
     <form onSubmit={submitComment}>
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">
+      <div className="mb-3">
+        <label for="exampleFormControlInput1" className="form-label">
           Full Name
         </label>
         <input
-          class="form-control"
+          className="form-control"
           id="exampleFormControlInput1"
           placeholder="John Doe"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">
+      <div className="mb-3">
+        <label for="exampleFormControlTextarea1" className="form-label">
           Your comment
         </label>
         <textarea
-          class="form-control"
+          className="form-control"
           id="comment-box"
           rows="3"
           onChange={(e) => setComment(e.target.value)}
         ></textarea>
-        <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-primary mt-3 mb-3">
+        <div className="d-grid gap-2">
+          <button type="submit" className="btn btn-primary mt-3 mb-3">
             Submit
           </button>
         </div>

@@ -49,7 +49,7 @@ export default function Navbar() {
               </li>
             )}
           </ul>
-          <div class="d-flex">
+          <div className="d-flex">
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
               {authenticated && (
                 <li className="nav-item">
