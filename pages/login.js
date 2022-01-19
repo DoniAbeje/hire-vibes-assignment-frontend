@@ -15,7 +15,7 @@ export default function Login() {
           <h1 className="mb-5 text-center">
             <span className="text-primary">FILMS</span> | LOGIN
           </h1>
-          <label for="username-input" className="form-label">
+          <label htmlFor="username-input" className="form-label">
             Username
           </label>
           <input
@@ -26,7 +26,7 @@ export default function Login() {
           />
         </div>
         <div className="mb-3">
-          <label for="password-input" className="form-label">
+          <label htmlFor="password-input" className="form-label">
             Password
           </label>
           <input

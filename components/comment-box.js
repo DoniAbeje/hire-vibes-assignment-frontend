@@ -8,7 +8,7 @@ export default function CommentBox({ filmId, onNewComment }) {
   return (
     <form onSubmit={submitComment}>
       <div className="mb-3">
-        <label for="exampleFormControlInput1" className="form-label">
+        <label htmlFor="exampleFormControlInput1" className="form-label">
           Full Name
         </label>
         <input
@@ -20,7 +20,7 @@ export default function CommentBox({ filmId, onNewComment }) {
         />
       </div>
       <div className="mb-3">
-        <label for="exampleFormControlTextarea1" className="form-label">
+        <label htmlFor="exampleFormControlTextarea1" className="form-label">
           Your comment
         </label>
         <textarea

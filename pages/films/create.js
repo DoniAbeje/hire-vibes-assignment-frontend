@@ -11,11 +11,11 @@ export default function CreateFilm() {
         <form>
           <div className="row justify-content-center bg-light pt-4 pb-4">
             <div className="col-lg-3">
-              <label for="title-input" className="form-label">
+              <label htmlFor="title-input" className="form-label">
                 Title
               </label>
               <input type="text" className="form-control" id="title-input" />
-              <label for="release-date-input" className="form-label mt-3">
+              <label htmlFor="release-date-input" className="form-label mt-3">
                 Release Date
               </label>
               <input
@@ -23,7 +23,7 @@ export default function CreateFilm() {
                 className="form-control"
                 id="release-date-input"
               />
-              <label for="country-input" className="form-label mt-3">
+              <label htmlFor="country-input" className="form-label mt-3">
                 Country
               </label>
               <select
@@ -37,7 +37,7 @@ export default function CreateFilm() {
                 <option value="3">Three</option>
               </select>
 
-              <label for="genre-input" className="form-label mt-3">
+              <label htmlFor="genre-input" className="form-label mt-3">
                 Genre
               </label>
               <select
@@ -54,7 +54,7 @@ export default function CreateFilm() {
             </div>
 
             <div className="col-lg-3">
-              <label for="rating-input" className="form-label">
+              <label htmlFor="rating-input" className="form-label">
                 Rating
               </label>
               <input
@@ -65,7 +65,7 @@ export default function CreateFilm() {
                 id="rating-input"
                 placeholder=""
               />
-              <label for="price-input" className="form-label mt-3">
+              <label htmlFor="price-input" className="form-label mt-3">
                 Price
               </label>
               <input
@@ -74,11 +74,11 @@ export default function CreateFilm() {
                 id="price-input"
                 placeholder=""
               />
-              <label for="photo-input" className="form-label mt-3">
+              <label htmlFor="photo-input" className="form-label mt-3">
                 Photo
               </label>
               <input className="form-control" type="file" id="photo-input"></input>
-              <label for="description-input" className="form-label mt-3">
+              <label htmlFor="description-input" className="form-label mt-3">
                 Description
               </label>
               <textarea
