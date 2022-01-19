@@ -26,12 +26,8 @@ export default function CreateFilm() {
               <label htmlFor="country-input" className="form-label mt-3">
                 Country
               </label>
-              <select
-                className="form-select"
-                id="country-input"
-                aria-label="Default select"
-              >
-                <option selected>Open this select menu</option>
+              <select className="form-select" id="country-input" defaultValue="1">
+                <option>Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
@@ -43,10 +39,10 @@ export default function CreateFilm() {
               <select
                 className="form-select"
                 id="genre-input"
-                multiple="multiple"
-                aria-label="Default select"
+                multiple
+                defaultValue={["1"]}
               >
-                <option selected>Open this select menu</option>
+                <option>Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
@@ -77,7 +73,11 @@ export default function CreateFilm() {
               <label htmlFor="photo-input" className="form-label mt-3">
                 Photo
               </label>
-              <input className="form-control" type="file" id="photo-input"></input>
+              <input
+                className="form-control"
+                type="file"
+                id="photo-input"
+              ></input>
               <label htmlFor="description-input" className="form-label mt-3">
                 Description
               </label>
