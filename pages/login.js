@@ -19,6 +19,7 @@ export default function Login() {
             Username
           </label>
           <input
+            required
             className="form-control"
             id="username-input"
             value={username}
@@ -30,6 +31,7 @@ export default function Login() {
             Password
           </label>
           <input
+            required
             type="password"
             className="form-control"
             id="password-input"

@@ -12,6 +12,7 @@ export default function CommentBox({ filmId, onNewComment }) {
           Full Name
         </label>
         <input
+          required
           className="form-control"
           id="exampleFormControlInput1"
           placeholder="John Doe"
@@ -24,6 +25,7 @@ export default function CommentBox({ filmId, onNewComment }) {
           Your comment
         </label>
         <textarea
+          required
           className="form-control"
           id="comment-box"
           rows="3"
