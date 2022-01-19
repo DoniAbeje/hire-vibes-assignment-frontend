@@ -70,3 +70,9 @@ export default function FilmDetail() {
     }
   }
 }
+
+export async function getServerSideProps(context) {
+  return {
+    props: {}, 
+  }
+}
