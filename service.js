@@ -4,7 +4,7 @@ import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { firebaseConfig } from "./firebase.config";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export async function uploadFile(file, name) {
   const app = initializeApp(firebaseConfig);
