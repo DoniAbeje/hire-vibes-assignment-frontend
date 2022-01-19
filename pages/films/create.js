@@ -100,6 +100,7 @@ export default function CreateFilm() {
                 className="form-control"
                 type="file"
                 id="photo-input"
+                accept="image/*"
               ></input>
               <label htmlFor="description-input" className="form-label mt-3">
                 Description
