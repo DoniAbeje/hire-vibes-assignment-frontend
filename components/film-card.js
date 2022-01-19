@@ -66,14 +66,18 @@ function Rating({ rating }) {
   );
 
   function geStars(count, src) {
+    const stars = [];
     for (let index = 0; index < count; index++) {
-      <img
-        key={index}
-        src={src}
-        className="m-2"
-        style={{ height: 18, width: 18 }}
-      />;
+      stars.push(
+        <img
+          key={index}
+          src={src}
+          className="m-2"
+          style={{ height: 18, width: 18 }}
+        />
+      );
     }
+    return stars;
   }
 }
 
@@ -82,7 +86,11 @@ function Genre({ genres }) {
     <div className="">
       {genres.map((genre, index) => {
         return (
-          <span key={index} className="badge bg-dark" style={{marginLeft: '.5em'}}>
+          <span
+            key={index}
+            className="badge bg-dark"
+            style={{ marginLeft: ".5em" }}
+          >
             {genre}
           </span>
         );
