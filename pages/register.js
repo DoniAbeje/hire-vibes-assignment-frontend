@@ -5,6 +5,7 @@ import * as service from "../service";
 export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   return (
     <div
       style={{ height: "100vh", width: "100%" }}
@@ -43,7 +44,14 @@ export default function Register() {
           <label htmlFor="confirm-password-input" className="form-label">
             Confirm Password
           </label>
-          <input type="password" className="form-control" id="confirm-" />
+          <input
+            required
+            type="password"
+            className="form-control"
+            id="confirm-password-input"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
         </div>
         <div className="d-grid gap-2">
           <button type="submit" className="btn btn-primary mt-3 mb-3">
@@ -59,6 +67,10 @@ export default function Register() {
 
   async function register(event) {
     event.preventDefault();
+    if (password != confirmPassword) {
+      NotificationManager.warning("Password don't match confirm password");
+      return;
+    }
     const user = { username, password };
     const newUser = await service.register(user);
     if (newUser) {
