@@ -14,11 +14,17 @@ export default function CreateFilm() {
               <label htmlFor="title-input" className="form-label">
                 Title
               </label>
-              <input type="text" className="form-control" id="title-input" />
+              <input
+                required
+                type="text"
+                className="form-control"
+                id="title-input"
+              />
               <label htmlFor="release-date-input" className="form-label mt-3">
                 Release Date
               </label>
               <input
+                required
                 type="date"
                 className="form-control"
                 id="release-date-input"
@@ -27,6 +33,7 @@ export default function CreateFilm() {
                 Country
               </label>
               <select
+                required
                 className="form-select"
                 id="country-input"
                 defaultValue="1"
@@ -44,7 +51,8 @@ export default function CreateFilm() {
               <label htmlFor="genre-input" className="form-label mt-3">
                 Genre
               </label>
-              <select 
+              <select
+                required
                 className="form-select"
                 id="genre-input"
                 multiple
@@ -66,6 +74,7 @@ export default function CreateFilm() {
                 Rating
               </label>
               <input
+                required
                 type="number"
                 max="5"
                 min="0"
@@ -77,6 +86,7 @@ export default function CreateFilm() {
                 Price
               </label>
               <input
+                required
                 type="number"
                 className="form-control"
                 id="price-input"
@@ -86,6 +96,7 @@ export default function CreateFilm() {
                 Photo
               </label>
               <input
+                required
                 className="form-control"
                 type="file"
                 id="photo-input"
@@ -94,6 +105,7 @@ export default function CreateFilm() {
                 Description
               </label>
               <textarea
+                required
                 className="form-control"
                 id="description-input"
                 rows="4"
