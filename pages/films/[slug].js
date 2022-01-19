@@ -34,7 +34,7 @@ export default function FilmDetail() {
                   onNewComment={() => fetchComments(film.id)}
                 ></CommentBox>
                 {comments.map((comment) => {
-                  return <Comment comment={comment}></Comment>;
+                  return <Comment key={comment.id} comment={comment}></Comment>;
                 })}
               </div>
             )}
