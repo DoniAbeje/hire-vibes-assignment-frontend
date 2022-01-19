@@ -2,6 +2,9 @@ import { NotificationManager } from "react-notifications";
 import * as request from "./request";
 
 const BASE_URL = "http://localhost:3000";
+export async function fetchFilms() {
+  return await request.get(`${BASE_URL}/film`);
+}
 
 export async function register(user) {
   return await request.post(`${BASE_URL}/user/register`, user);
@@ -23,11 +26,11 @@ export async function login(user) {
   return await response;
 }
 
-export function isAuthenticated(){
-    return localStorage.getItem('token');
+export function isAuthenticated() {
+  return localStorage.getItem("token");
 }
 
-export function logout(){
-  localStorage.removeItem('token')
-  window.location = '/films'
+export function logout() {
+  localStorage.removeItem("token");
+  window.location = "/films";
 }
