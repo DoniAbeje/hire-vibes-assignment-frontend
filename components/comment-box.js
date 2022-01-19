@@ -27,6 +27,7 @@ export default function CommentBox({ filmId, onNewComment }) {
           className="form-control"
           id="comment-box"
           rows="3"
+          value={comment}
           onChange={(e) => setComment(e.target.value)}
         ></textarea>
         <div className="d-grid gap-2">
@@ -42,11 +43,17 @@ export default function CommentBox({ filmId, onNewComment }) {
     event.preventDefault();
     const requestBody = { filmId, comment, name };
     const response = await service.submitComment(requestBody);
-    if(response && response.ok){
-      if(onNewComment){
-        const json = await response.json()
-        onNewComment(json)
+    if (response && response.ok) {
+      if (onNewComment) {
+        const json = await response.json();
+        emptyCommentBox();
+        onNewComment(json);
       }
     }
+  }
+
+  function emptyCommentBox() {
+    setComment("");
+    setName("");
   }
 }
