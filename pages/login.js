@@ -46,7 +46,7 @@ export default function Login() {
           </button>
           <Link href="/register">
             <button type="button" className="btn btn-dark btn mt-1">
-              Don't have account? Create new
+              Don&apos;t have account? Create new
             </button>
           </Link>
         </div>
