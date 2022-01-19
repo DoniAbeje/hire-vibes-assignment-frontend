@@ -26,26 +26,38 @@ export default function CreateFilm() {
               <label htmlFor="country-input" className="form-label mt-3">
                 Country
               </label>
-              <select className="form-select" id="country-input" defaultValue="1">
-                <option>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+              <select
+                className="form-select"
+                id="country-input"
+                defaultValue="1"
+              >
+                <option>Select Country</option>
+                <option value="USA">USA</option>
+                <option value="England">England</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Spain">Spain</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Kenya">Kenya</option>
+                <option value="Israel">Israel</option>
               </select>
 
               <label htmlFor="genre-input" className="form-label mt-3">
                 Genre
               </label>
-              <select
+              <select 
                 className="form-select"
                 id="genre-input"
                 multiple
                 defaultValue={["1"]}
               >
-                <option>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option>Select Genre</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Action">Action</option>
+                <option value="Horror">Horror</option>
+                <option value="Drama">Drama</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Romance">Romance</option>
               </select>
             </div>
 
